@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "consoleio.h"
+#include "statuscodes.h"
+#include "executor.h"
 
 void nopesh_shell_loop(void);
 
@@ -17,10 +19,10 @@ void nopesh_shell_loop(void) {
         do {
                 printf("nopesh> "); 
                 line = nopesh_read_line(); // read line
-                args = 0; // split line into stuff
-                status = 0; // execute();
+                args = nopesh_split_line(line); // split line into stuff
+                status = nopesh_execute(args); // execute();
 
                 free(line);
                 free(args);
-        } while(status);
+        } while(status != EXIT_CODE);
 }
