@@ -4,7 +4,7 @@ CFLAGS = -pipe -Wall
 
 all: $(TARGET)
 
-$(TARGET): 
+$(TARGET): clean
 	$(CC) $(CFLAGS) -o $(TARGET) src/*.c
 
 clean:

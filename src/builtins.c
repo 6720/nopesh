@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "statuscodes.h"
+#include "dirhelper.h"
 
 // Forward declaractions so that we can use them in the related variables
 int nopesh_cd(char** args);
@@ -28,12 +29,18 @@ int nopesh_num_builtins(void) {
 
 // Builtin implementations
 int nopesh_cd(char** args) {
+        int chdir_status;
         if(args[1] == NULL) {
                 // TODO: Return to home directory
-                fprintf(stderr, "nopesh: invalid cd location\n");
-                return 2;
+                //fprintf(stdout, "%s", get_home());
+                //fprintf(stderr, "nopesh: invalid cd location\n");
+                chdir_status = chdir(get_home());
+                if(chdir_status != 0) {
+                        perror("nopesh");
+                }
+                return chdir_status;
         } else {
-                int chdir_status = chdir(args[1]);
+                chdir_status = chdir(args[1]);
                 if(chdir_status != 0) {
                         perror("nopesh");
                 }
