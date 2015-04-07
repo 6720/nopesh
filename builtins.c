@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "statuscodes.h"
 
 // Forward declaractions so that we can use them in the related variables
 int nopesh_cd(char** args);
@@ -46,6 +47,5 @@ int nopesh_help(char** args) {
 }
 
 int nopesh_exit(char** args) {
-        fprintf(stderr, "Not yet implemented!\n");
-        return 2;
+        return EXIT_CODE;
 }
