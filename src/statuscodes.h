@@ -1,1 +1,6 @@
+#ifndef STATUSCODES_H
+#define STATUSCODES_H
+
 #define EXIT_CODE -1097199128
+
+#endif /* STATUSCODES_H */

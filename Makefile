@@ -1,6 +1,6 @@
 CC = clang
 TARGET = nopesh
-CFLAGS = -pipe -Wall
+CFLAGS = -pipe -Wall 
 
 all: $(TARGET)
 

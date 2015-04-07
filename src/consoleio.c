@@ -1,7 +1,8 @@
-#include "consoleio.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <termios.h>
+#include "consoleio.h"
 
 char* nopesh_read_line(void) {
         char* line = NULL;
@@ -9,6 +10,8 @@ char* nopesh_read_line(void) {
         getline(&line, &buffersize, stdin);
         return line;
 }
+
+
 
 char** nopesh_split_line(char* line) {
         int buffersize = TOKEN_BUFFERSIZE;
